@@ -1,0 +1,129 @@
+http://www.ignou4ublog.com/2012/11/how-to-fill-up-ignou-admission-form.html
+WebReference_1
+Verdana 10pt, #0000C0
+http://www.asp.net/cssadapters/WalkThru/WalkThrough.aspx#SimpleMenu
+
+
+
+<table width="100%">
+    <asp:Menu  Orientation="Horizontal" 
+        id="Menu2"
+        
+        StaticMenuItemStyle-CssClass="staticMenuItem" 
+        StaticHoverStyle-CssClass="menuHover" 
+        DynamicHoverStyle-CssClass="menuHover" 
+        DynamicMenuItemStyle-CssClass="dynamicMenuItem" 
+        DynamicMenuStyle-CssClass="dynamicMenu"  accesskey="H"
+        Runat="server" BackColor="#4682B3" DynamicMenuStyle-BackColor="#0000FF" OnMenuItemClick="Menu2_MenuItemClick" DynamicHorizontalOffset="2" Font-Names="Arial" Font-Size="12pt" ForeColor="Black" StaticSubMenuIndent="12px" Height="27px" Width="100%"> 
+         
+        <StaticMenuItemStyle CssClass="staticMenuItem" HorizontalPadding="5px" VerticalPadding="2px" Font-Size="12pt" /> 
+        <DynamicHoverStyle CssClass="menuHover" BackColor="SaddleBrown" ForeColor="#FFE0C0" Font-Size="12pt" BorderColor="#400040" /> 
+        <DynamicMenuStyle CssClass="dynamicMenu" BackColor="Beige"  /> 
+        <DynamicMenuItemStyle CssClass="dynamicMenuItem" HorizontalPadding="5px" VerticalPadding="3px" BackColor="LightGray" Font-Size="12pt" Font-Underline="False" ForeColor="#400000" /> 
+        <StaticHoverStyle CssClass="menuHover" BackColor="FloralWhite" ForeColor="MidnightBlue" Font-Size="10pt" /> 
+        <StaticSelectedStyle BackColor="#FFE0C0" />
+        <DynamicSelectedStyle BackColor="#27408B" Font-Size="12pt" ForeColor="Black"  />
+        <DataBindings>
+            <asp:MenuItemBinding DataMember="SiteMapNode" />
+            <asp:MenuItemBinding DataMember="SiteMapNode" TextField="aaaa" />
+        </DataBindings>
+        <StaticItemTemplate>
+            <%# Eval("Text") %>
+        </StaticItemTemplate>
+        <Items>
+         <asp:MenuItem Text="&nbsp &nbsp Inbox" Value="Inbox">
+                <asp:MenuItem Text="&nbsp Membership" Value="MembershipI"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Nominee Details" Value="NomineeDetailsInbox"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Nominee Change" Value="NomChg"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Monthly Subscription" Value="MonthlyTrn"></asp:MenuItem>
+                  <asp:MenuItem Text="&nbsp Temperory Advance" Value="TempAdvance"></asp:MenuItem>
+                  <%--<asp:MenuItem Text="Temperory Advance>75000" Value="TempAdvance7"></asp:MenuItem>--%>
+                  <asp:MenuItem Text="&nbsp Non Refundable Advance" Value="NraI"></asp:MenuItem>
+                  <asp:MenuItem Text="&nbsp TA to NRA Conversion" Value="TaToNraI"></asp:MenuItem>
+                  <asp:MenuItem Text="&nbsp Subscription Change" Value="SubnChgIn"></asp:MenuItem>
+                  <asp:MenuItem Text="&nbsp Closure" Value="ClosureIn"></asp:MenuItem>
+                  <%--<asp:MenuItem Text="&nbsp Fresh Membership" Value="FMem"></asp:MenuItem>
+                  <asp:MenuItem Text="&nbsp Updates" Value="Upds"></asp:MenuItem>--%>
+            </asp:MenuItem>
+           
+            <asp:MenuItem Text="PF Services" Value="Main">
+                <asp:MenuItem Text="&nbsp Membership" Value="Membership" ></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Nominee Change" Value="NomineeChg"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Monthly Subscription" Value="Monthly subscription"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Temporary Advance" Value="Temporary advance"></asp:MenuItem>
+                <%--<asp:MenuItem Text="Temporary Advance>75000" Value="Temporaryadvance75"></asp:MenuItem>--%>
+                <asp:MenuItem Text="&nbsp Non Refundable Advance" Value="Non refundable advance"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp TA to NRA Conversion" Value="TA to NRA conversion"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Subscription Change" Value="Subscription change"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Closure" Value="Closure"></asp:MenuItem>
+            </asp:MenuItem>
+             <asp:MenuItem Text="&nbsp &nbsp File Status" Value="FStat">
+                <asp:MenuItem Text="&nbsp Fresh Membership" Value="FMem"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Returned Files" Value="Upds"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Pending Files" Value="Pndng"></asp:MenuItem>
+            </asp:MenuItem>
+            <%--<asp:MenuItem Text="Nominee Details" Value="Nominee details"></asp:MenuItem>--%>
+            <asp:MenuItem Text="&nbsp &nbsp PDE Services" Value="pdeTrans">
+                <asp:MenuItem Text="&nbsp Nominee Details" Value="Nominee details"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Pass Book" Value="Passbook"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Treasury" Value="TreasuryPDE">
+                    <asp:MenuItem Text="&nbsp Remittance" Value="TreasuryRem"></asp:MenuItem>
+                    <asp:MenuItem Text="&nbsp Withdrawals" Value="TreasuryWith"></asp:MenuItem>
+                    </asp:MenuItem>
+                    
+                    <asp:MenuItem Text="&nbsp AG" Value="AGPDE">
+                    <asp:MenuItem Text="&nbsp Statements" Value="AGStatement"></asp:MenuItem>
+                     <asp:MenuItem Text="&nbsp AG Report" Value="AGreport"></asp:MenuItem>
+
+                    </asp:MenuItem>
+            </asp:MenuItem>
+            
+            <asp:MenuItem Text="Advance Process" Value="Advanceprocess">
+                <asp:MenuItem Text="&nbsp Sanction Order" Value="Sanctionorder"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Bill Generation" Value="Billgeneration"></asp:MenuItem>
+                  <asp:MenuItem Text="&nbsp Treasury Reconsilation" Value="TreasuryRecosile"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Acquittance Register" Value="Acquittance"></asp:MenuItem>
+            </asp:MenuItem>
+            
+            <asp:MenuItem Text="Search" Value="Search">
+                <asp:MenuItem Text="&nbsp Employee" Value="EmpSearchLB"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp File" Value="File"></asp:MenuItem>
+<%--                <asp:MenuItem Text="&nbsp Sanction Order" Value="SanctionOrderP"></asp:MenuItem>--%>
+                <asp:MenuItem Text="&nbsp Chalan" Value="ChalanS"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Bill" Value="BillS"></asp:MenuItem>
+                </asp:MenuItem>
+                
+<%--            </asp:MenuItem>--%>
+            
+            <asp:MenuItem Text="Credit Card" Value="CreditCard"></asp:MenuItem>
+            <asp:MenuItem Text="Annual Statement " Value="AnnStmnt" Enabled="true"></asp:MenuItem>
+            <asp:MenuItem Text=" Masters " Value="Masters">
+                <asp:MenuItem Text="&nbsp Employee" Value="Employee" ></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Localbody" Value="Localbody" ></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Treasury" Value="Treasury" ></asp:MenuItem>
+            </asp:MenuItem>
+            <asp:MenuItem Text="Settings" Value="Settings">
+                <asp:MenuItem Text="&nbsp Service History" Value="SerHis" Enabled="true"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Set Employee" Value="Set employee"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Employee" Value="Employee" Enabled="false"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Localbody" Value="Localbody"  Enabled="false"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Treasury" Value="Treasury" Enabled="false"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Add User" Value="AddUser"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Change Password" Value="Change password"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Disable User" Value="DisableUser"></asp:MenuItem>
+            </asp:MenuItem>
+            <asp:MenuItem Text="Reports" Value="Reports">
+                <asp:MenuItem Text="&nbsp Sanction Order" Value="SanctionOrderP"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Bill" Value="BillP"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp Chalan" Value="AcquittanceP"></asp:MenuItem>
+                <asp:MenuItem Text="&nbsp ABCD Statement" Value="abcdStaement"></asp:MenuItem>
+            </asp:MenuItem>
+            
+            <asp:MenuItem Text="Rejection after Approval" Value="rejAftrApp">
+
+            </asp:MenuItem>
+            <asp:MenuItem Text="Ao Approval" Value="AoApproval"></asp:MenuItem>
+        </Items>
+    </asp:Menu>
+        <%--<asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />--%>
+</table>

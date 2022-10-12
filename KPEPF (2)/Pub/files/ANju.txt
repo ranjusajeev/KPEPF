@@ -1,0 +1,87 @@
+private void AddNewRow()
+{
+    int rowIndex = 0;
+
+    if (ViewState["CurrentTable"] != null)
+    {
+        DataTable dtCurrentTable = (DataTable)ViewState["CurrentTable"];
+	arr.add("TextBoxName ");
+	arr.add("TextBoxAge ");	
+	arr.add("TextBoxAddress ");	
+	arr.add("RBLGender");
+	arr.add("DrpQualification ");
+        addrow(dtCurrentTable ,grvStudentDetails,arr);
+    }
+    else
+    {
+        Response.Write("ViewState is null");
+    }
+    SetPreviousData();
+}
+
+
+private void SetPreviousData()
+{
+    int rowIndex = 0;
+    if (ViewState["CurrentTable"] != null)
+    {
+        DataTable dt = (DataTable)ViewState["CurrentTable"];
+        if (dt.Rows.Count > 0)
+        {
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                TextBox TextBoxName = (TextBox)grvStudentDetails.Rows[rowIndex].Cells[1].FindControl("txtName");
+                TextBox TextBoxAge = (TextBox)grvStudentDetails.Rows[rowIndex].Cells[2].FindControl("txtAge");
+                TextBox TextBoxAddress = 
+                  (TextBox)grvStudentDetails.Rows[rowIndex].Cells[3].FindControl("txtAddress");
+                RadioButtonList RBLGender = 
+                  (RadioButtonList)grvStudentDetails.Rows[rowIndex].Cells[4].FindControl("RBLGender");
+                DropDownList DrpQualification = 
+                  (DropDownList)grvStudentDetails.Rows[rowIndex].Cells[5].FindControl("drpQualification");
+
+                TextBoxName.Text = dt.Rows[i]["Col1"].ToString();
+                TextBoxAge.Text = dt.Rows[i]["Col2"].ToString();
+                TextBoxAddress.Text = dt.Rows[i]["Col3"].ToString();
+                RBLGender.SelectedValue = dt.Rows[i]["Col4"].ToString();
+                DrpQualification.SelectedValue = dt.Rows[i]["Col5"].ToString();
+                rowIndex++;
+            }
+        }
+    }
+}
+private void addrow(DataTable dtdrCurrentRow ,gridview grvStudentDetails,ArrayList arr)
+{
+	
+        DataRow drCurrentRow = null;
+        if (dtCurrentTable.Rows.Count > 0)
+        {
+            for (int i = 1; i <= dtCurrentTable.Rows.Count; i++)
+            {
+		if(arr.Item[0].
+                TextBox TextBoxName = 
+                  (TextBox)grvStudentDetails.Rows[rowIndex].Cells[1].FindControl("txtName");
+                TextBox TextBoxAge = 
+                  (TextBox)grvStudentDetails.Rows[rowIndex].Cells[2].FindControl("txtAge");
+                TextBox TextBoxAddress = 
+                  (TextBox)grvStudentDetails.Rows[rowIndex].Cells[3].FindControl("txtAddress");
+                RadioButtonList RBLGender = 
+                  (RadioButtonList)grvStudentDetails.Rows[rowIndex].Cells[4].FindControl("RBLGender");
+                DropDownList DrpQualification = 
+                  (DropDownList)grvStudentDetails.Rows[rowIndex].Cells[5].FindControl("drpQualification");
+                drCurrentRow = dtCurrentTable.NewRow();
+                drCurrentRow["RowNumber"] = i + 1;
+
+                dtCurrentTable.Rows[i - 1]["Col1"] = TextBoxName.Text;
+                dtCurrentTable.Rows[i - 1]["Col2"] = TextBoxAge.Text;
+                dtCurrentTable.Rows[i - 1]["Col3"] = TextBoxAddress.Text;
+                dtCurrentTable.Rows[i - 1]["Col4"] = RBLGender.SelectedValue;
+                dtCurrentTable.Rows[i - 1]["Col5"] = DrpQualification.SelectedValue;
+                rowIndex++;
+            }
+            dtCurrentTable.Rows.Add(drCurrentRow);
+            ViewState["CurrentTable"] = dtCurrentTable;
+
+            grvStudentDetails.DataSource = dtCurrentTable;
+            grvStudentDetails.DataBind();
+        }
+}

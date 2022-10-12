@@ -1,0 +1,179 @@
+﻿/* CSSTerm.com Simple Horizontal DropDown CSS menu */
+
+.drop_menu {
+	
+	 height: 43px;
+    padding-left: 10px;
+   background-image:url(../images/left1.gif) ;
+    width:930px;
+   float:right;
+   margin: 47px 0 0 0;
+  
+}
+
+
+.drop_menu li {  position: relative;
+    margin: 0;
+    padding: 0 0 0 0;
+    display:inline-block;
+    float: left;
+    z-index: 9;
+    
+    
+   
+    }
+    .drop_menu  ul ul li 
+    {
+		 height: 39px;
+    z-index: 9;
+}
+.drop_menu li a {
+	padding:10px 20px;
+	display:inline-block;
+	color:#fff;
+	text-decoration:none;
+	 height:30px;
+	 width :auto ;
+	
+	/*font:14px arial, verdana, sans-serif;*/
+	 font-family:Meera;
+	 font-size:15px;
+	 font-weight:bold ;
+	
+}
+div#drop_menu  a.over 
+{
+	
+ 
+}
+
+/* Submenu */
+.drop_menu ul {
+	position:absolute;
+	left:-9999px;
+	top:-9999px;
+	list-style-type:none;
+	visibility: visible;
+	width :171px ;
+	  
+	 
+}
+.drop_menu li:hover {  
+	 
+	 background-repeat:repeat ;
+	 width:auto;
+	}
+.drop_menu li:hover ul {
+	left:0px;
+	top:37px;
+	height:auto;
+	background-image:url(../images/left2bb1.gif) ;
+	/*background-image:url(menuimage/left2.gif) ;
+	 background-repeat:repeat ;*/
+	padding:0px;
+	
+}
+
+.drop_menu li:hover ul li a {
+	  padding: 0 15px;
+    line-height: 30px;
+    font-size: 15px;
+	width:139px;
+}
+.drop_menu li:hover ul li a:hover { background-image:url(../images/left2bb1select.gif) ;}
+
+/*****************************88*/
+
+.drop_menu1 {
+ height : 28px;
+	float: left;
+	width: 930px;
+		margin-left: 10;
+	margin-right: 0;
+	margin-top: 5px;
+	 background-image:url(../images/left1.gif) ;
+	
+	
+}
+.drop_menu1 li {  position: relative;
+    margin: 0;
+    padding: 0 0 0 0;
+    display:inline;
+    float: left;
+    z-index: 9;
+    
+    
+   
+    }
+    .drop_menu1  ul ul li 
+    {
+		 height: 39px;
+    z-index: 9;
+}
+.drop_menu1 li a {
+	padding:7px 25px;
+	display:inline-block;
+	
+	text-decoration:none;
+	width :auto ;
+	/*font:14px arial, verdana, sans-serif;*/
+	 font-family:Meera;
+	font-size:15px;
+	float: left;
+	height: 30px;
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	font-size: 15px;	
+	font-weight: bold;
+	cursor: pointer;
+	
+	
+	
+}
+div#drop_menu1  a.over {
+  background-color:Black;
+  
+}
+
+/* Submenu */
+.drop_menu1 ul {
+	position:absolute;
+	left:-9999px;
+	top:-9999px;
+	list-style-type:none;
+	 visibility: visible;
+	  width :160px ;
+	  margin:13px;
+	  
+	 
+}
+.drop_menu1 li:hover {  
+	 
+	
+	 background-repeat:repeat ;
+	 top:1px;
+	
+	 width:auto;
+	 height :auto;
+	}
+.drop_menu1 li:hover ul 
+{
+ 
+	left:0px;
+	top:19px;
+	height:auto;
+	background-image:url(../images/left2bb.gif) ;
+	/*background-image:url(menuimage/left2.gif) ;
+	 background-repeat:repeat ;*/
+	padding:0px;
+	
+}
+
+.drop_menu1 li:hover ul li a {
+	  padding: 0 15px;
+    line-height: 20px;
+    font-size: 15px;
+	
+}
+.drop_menu1 li:hover ul li a:hover {/* background:#005555;*/ }

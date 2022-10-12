@@ -1,0 +1,259 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using KPEPFClassLibrary;
+
+public partial class Contents_aaaAg : System.Web.UI.Page
+{
+    clsGlobalMethods gblObj;
+    GeneralDAO gen;
+    KPEPFGeneralDAO kgen;
+    CorrectionEntry corr;
+    CorrectionEntryDao corrDao;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            SetGridDefault();
+            FillPfo("CorrEntryTest_AgPfo");
+        }
+        //else
+        //{
+        //    SetGridDefault();
+        //    SetGridDefaultS();
+        //}
+    }
+    private void SetGridDefault()
+    {
+        gblObj = new clsGlobalMethods();
+
+        ArrayList ar = new ArrayList();
+        ar.Add("SlNo");
+        //ar.Add("intDistID");
+        //ar.Add("chvEngLBName");
+        ar.Add("numChalanId");
+        ar.Add("dt");
+        ar.Add("intChalanNo");
+        //ar.Add("intChalanId");
+        ar.Add("fltChalanAmt");
+        ar.Add("dtmEntry");
+        //ar.Add("intGroupId");
+
+
+        gblObj.SetGridDefault(gdv1, ar);
+    }
+    private void FillPfo(string sp)
+    {
+        DataSet ds = new DataSet();
+        gen = new GeneralDAO();
+        //ds = gen.GetCorrTest();
+        ds = gen.FillPfo(sp);
+        SetGridDefault();
+        if (ds.Tables[0].Rows.Count > 0)
+        {
+            gdv1.DataSource = ds;
+            gdv1.DataBind();
+        }
+    }
+    protected void btnOK_Click(object sender, EventArgs e)
+    {
+        gen = new GeneralDAO();
+        KPEPFGeneralDAO kgen = new KPEPFGeneralDAO();
+        //if (Convert.ToInt16(Session["flg"]) == 1)
+        //{
+            int yr = 0;
+            int mth = 0;
+            int dy = 0;
+
+            int schi = 0;
+            int amt = 0;
+            int intCorrTp = 0;
+            //int plusMinusFlg = 2;
+            for (int i = 0; i < gdv1.Rows.Count; i++)
+            {
+                ArrayList ar = new ArrayList();
+                
+                DataSet ds = new DataSet();
+                ar.Add(Convert.ToInt32(gdv1.Rows[i].Cells[4].Text));
+                if (Convert.ToInt16(Session["flg"]) == 1)
+                {
+                    ds = gen.FillPfo2(ar);
+                }
+                else if (Convert.ToInt16(Session["flg"]) == 2)
+                {
+                    ds = gen.FillSite2(ar);
+                }
+                else if (Convert.ToInt16(Session["flg"]) == 3)
+                {
+                    ds = gen.FillSite2(ar);
+                }
+                else if (Convert.ToInt16(Session["flg"]) == 4)
+                {
+                    ds = gen.FillPfo2(ar);
+                }
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int j = 0; j < ds.Tables[0].Rows.Count; j++)
+                    {
+                        ArrayList aryr = new ArrayList();
+                        aryr.Add(Convert.ToDateTime(gdv1.Rows[i].Cells[2].Text));
+                        yr = kgen.FindYearIdFromDate(aryr);
+                        mth = Convert.ToDateTime(gdv1.Rows[i].Cells[2].Text).Month;
+                        dy = Convert.ToDateTime(gdv1.Rows[i].Cells[2].Text).Day;
+                        amt = Convert.ToInt32(ds.Tables[0].Rows[j].ItemArray[1]);
+                        schi = Convert.ToInt32(ds.Tables[0].Rows[j].ItemArray[2]);
+                        if (Convert.ToInt16(Session["flg"]) == 1)
+                        {
+                            intCorrTp = 100;
+                        }
+                        else if (Convert.ToInt16(Session["flg"]) == 2)
+                        {
+                            intCorrTp = 200;
+                        }
+                        else if (Convert.ToInt16(Session["flg"]) == 3)
+                        {
+                            intCorrTp = 300;
+                        }
+                        else if (Convert.ToInt16(Session["flg"]) == 4)
+                        {
+                            intCorrTp = 400;
+                        }
+                        SaveCorrectionEntryA(Convert.ToInt32(ds.Tables[0].Rows[j].ItemArray[0]), Convert.ToInt32(gdv1.Rows[i].Cells[4].Text), yr, mth, dy, amt, schi, intCorrTp, amt, amt, 1);
+
+                    }
+                }
+            }
+        //}
+
+
+       
+    }
+    private void SaveCorrectionEntryA(int intAccNo, int chalId, int yr, int mth, int intDy, double amt, double intSchedId, int intCorrTp, double fltAmtBfr, double fltAmtAfr, int ChngType)
+    {
+        gen = new GeneralDAO();
+        gblObj = new clsGlobalMethods();
+        corr = new CorrectionEntry();
+        corrDao = new CorrectionEntryDao();
+
+        Session["intCCYearId"] = gen.GetCCYearId();
+        //double dblCalcAmt = gblObj.CalculateAmtToCalc(yr, amt);
+        //double dblCalcAmt = amt;
+        double dblAmtAdjusted1 = gblObj.CalculateAdjAmt(yr, 50, mth, intDy, amt);
+        ///// Save to CorrEntry/////////
+        corr.IntAccNo = intAccNo;
+        corr.IntYearID = yr;
+        corr.IntMonthID = mth;
+        corr.IntYearIDCorrected = Convert.ToInt16(Session["intCCYearId"]);
+        corr.FltAmountBefore = fltAmtBfr;
+        corr.FltAmountAfter = fltAmtAfr;
+
+        corr.FltCalcAmount = dblAmtAdjusted1;
+
+        corr.FlgCorrected = 1;      //Just added not incorporated in CCard
+        corr.IntChalanId = chalId;
+        corr.IntSchedId = intSchedId;
+        corr.FlgType = 1;           //Remittance
+        corr.FltRoundingAmt = 0;
+        corr.IntCorrectionType = intCorrTp; //Edit Chal Date
+        corr.IntChalanType = 10;
+        corrDao.CreateCorrEntry(corr);
+        ///// Save to CorrEntry/////////
+        //if intEditMode == 1 then Add interest of 1 month and if intEditMode = 2 then subtract interest of 1 month//
+    }
+
+    private void SaveCorrectionEntry(int intAccNo, int chalId, int yr, int mth, int intDy, int yr2, int mth2, int intDy2, double amt, double intSchedId, int intCorrTp, double fltAmtBfr, double fltAmtAfr, int ChngType, int plusMinusFlg)
+    {
+        gen = new GeneralDAO();
+        gblObj = new clsGlobalMethods();
+        corr = new CorrectionEntry();
+        corrDao = new CorrectionEntryDao();
+
+        Session["intCCYearId"] = gen.GetCCYearId();
+        //double dblCalcAmt = gblObj.CalculateAmtToCalc(yr, amt);
+        //double dblCalcAmt = amt;
+        double dblAmtAdjusted1 = gblObj.CalculateAdjAmt(yr, 50, mth, intDy, amt);
+        double dblAmtAdjusted2 = gblObj.CalculateAdjAmt(yr2, 50, mth2, intDy2, amt);
+        ///// Save to CorrEntry/////////
+        corr.IntAccNo = intAccNo;
+        corr.IntYearID = yr;
+        corr.IntMonthID = mth;
+        corr.IntYearIDCorrected = Convert.ToInt16(Session["intCCYearId"]);
+        corr.FltAmountBefore = fltAmtBfr;
+        corr.FltAmountAfter = fltAmtAfr;
+        if (plusMinusFlg == 1)
+        {
+            corr.FltCalcAmount = dblAmtAdjusted2 - dblAmtAdjusted1;
+        }
+        else
+        {
+            corr.FltCalcAmount = dblAmtAdjusted1 - dblAmtAdjusted2;
+        }
+        corr.FlgCorrected = 1;      //Just added not incorporated in CCard
+        corr.IntChalanId = chalId;
+        corr.IntSchedId = intSchedId;
+        corr.FlgType = 1;           //Remittance
+        corr.FltRoundingAmt = 0;
+        corr.IntCorrectionType = intCorrTp; //Edit Chal Date
+        corr.IntChalanType = 10;
+        corrDao.CreateCorrEntry(corr);
+        ///// Save to CorrEntry/////////
+        //if intEditMode == 1 then Add interest of 1 month and if intEditMode = 2 then subtract interest of 1 month//
+    }
+    protected void rdCategory_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (rdCategory.Items[0].Selected == true)
+        {
+            Session["flg"] = 1;
+            FillPfo("CorrEntryTest_AgPfo");
+        }
+        else if (rdCategory.Items[1].Selected == true)
+        {
+            Session["flg"] = 3;
+            FillPfo("CorrEntryTest_AgPfoD");
+        }
+        else if (rdCategory.Items[2].Selected == true)
+        {
+            Session["flg"] = 2;
+            FillPfo("CorrEntryTest_AgSite");
+        }
+        else if (rdCategory.Items[3].Selected == true)
+        {
+            Session["flg"] = 4;
+            FillPfo("CorrEntryTest_AgSiteD");
+        }
+    }
+    protected void btnOKw_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void rdCategoryw_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (rdCategoryw.Items[0].Selected == true)
+        {
+            Session["flgw"] = 1;
+            FillPfo("CorrEntryTest_AgPfo");
+        }
+        else if (rdCategoryw.Items[1].Selected == true)
+        {
+            Session["flgw"] = 3;
+            FillPfo("CorrEntryTest_AgPfoD");
+        }
+        else if (rdCategoryw.Items[2].Selected == true)
+        {
+            Session["flgw"] = 2;
+            FillPfo("CorrEntryTest_AgSite");
+        }
+        else if (rdCategoryw.Items[3].Selected == true)
+        {
+            Session["flgw"] = 4;
+            FillPfo("CorrEntryTest_AgSiteD");
+        }
+    }
+}

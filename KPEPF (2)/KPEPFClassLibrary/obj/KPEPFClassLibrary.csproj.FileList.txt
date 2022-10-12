@@ -1,0 +1,5 @@
+bin\Debug\KPEPFClassLibrary.dll
+bin\Debug\KPEPFClassLibrary.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\KPEPFClassLibrary.dll
+obj\Debug\KPEPFClassLibrary.pdb

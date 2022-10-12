@@ -1,0 +1,148 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{30DDDB5E-AD2D-4ECE-A2CD-7174A1E1FC6E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KPEPFClassLibrary</RootNamespace>
+    <AssemblyName>KPEPFClassLibrary</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ABCD.cs" />
+    <Compile Include="ABCDDao.cs" />
+    <Compile Include="AGDAO.cs" />
+    <Compile Include="AnnInt.cs" />
+    <Compile Include="AnnIntDAO..cs" />
+    <Compile Include="AOApproval.cs" />
+    <Compile Include="AOApprovalDAO.cs" />
+    <Compile Include="AORecorrection.cs" />
+    <Compile Include="AORecorrectionDAO.cs" />
+    <Compile Include="Approval.cs" />
+    <Compile Include="ApprovalDAO.cs" />
+    <Compile Include="balancetrans.cs" />
+    <Compile Include="BalancetransDAO.cs" />
+    <Compile Include="BalanceTransPDEDao.cs" />
+    <Compile Include="BalanTrPDE.cs" />
+    <Compile Include="Bill.cs" />
+    <Compile Include="BillDao.cs" />
+    <Compile Include="BillPDE.cs" />
+    <Compile Include="BillPDEDao.cs" />
+    <Compile Include="Chalan.cs" />
+    <Compile Include="ChalanDAO.cs" />
+    <Compile Include="ChalanPDE.cs" />
+    <Compile Include="ChalanPDEAG.cs" />
+    <Compile Include="ChalanPDEAGDAO.cs" />
+    <Compile Include="ChalanPDEDao.cs" />
+    <Compile Include="Closure.cs" />
+    <Compile Include="ClosureDAO.cs" />
+    <Compile Include="ClosurePDE.cs" />
+    <Compile Include="CorrectionEntry.cs" />
+    <Compile Include="CorrectionEntryDao.cs" />
+    <Compile Include="CosurePDEDao.cs" />
+    <Compile Include="CreditCard.cs" />
+    <Compile Include="CreditCardDao.cs" />
+    <Compile Include="CreditMinusAG.cs" />
+    <Compile Include="CreditMinusAGDAO.cs" />
+    <Compile Include="DebitMinusPDEAG.cs" />
+    <Compile Include="DebitMinusPDEAGDAO.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeDAO.cs" />
+    <Compile Include="GeneralDAO.cs" />
+    <Compile Include="KPEPFDAOBase.cs" />
+    <Compile Include="KPEPFGeneralDAO.cs" />
+    <Compile Include="LedgerM.cs" />
+    <Compile Include="LedgerMDao.cs" />
+    <Compile Include="LedgerY.cs" />
+    <Compile Include="LedgerYDao.cs" />
+    <Compile Include="Membership.cs" />
+    <Compile Include="MembershipDAO.cs" />
+    <Compile Include="Missing.cs" />
+    <Compile Include="MissingDAO.cs" />
+    <Compile Include="MonthlySubnDAO.cs" />
+    <Compile Include="NomChg.cs" />
+    <Compile Include="NomineePDE.cs" />
+    <Compile Include="NomineePDEDao.cs" />
+    <Compile Include="OB.cs" />
+    <Compile Include="OBDao.cs" />
+    <Compile Include="Passbook.cs" />
+    <Compile Include="passbookDAO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recl.cs" />
+    <Compile Include="ReclDao.cs" />
+    <Compile Include="RemPDE.cs" />
+    <Compile Include="RemPDED.cs" />
+    <Compile Include="RemPDEDao.cs" />
+    <Compile Include="RemPDEDDao.cs" />
+    <Compile Include="RemPDEL.cs" />
+    <Compile Include="RemPDELDao.cs" />
+    <Compile Include="RemPDES.cs" />
+    <Compile Include="RemPDESDao.cs" />
+    <Compile Include="Schedule.cs" />
+    <Compile Include="ScheduleDAO.cs" />
+    <Compile Include="ScheduleMain.cs" />
+    <Compile Include="ScheduleMainDAO.cs" />
+    <Compile Include="SchedulePDE.cs" />
+    <Compile Include="SchedulePDEDao.cs" />
+    <Compile Include="SubnChange.cs" />
+    <Compile Include="SubnChangeDAO.cs" />
+    <Compile Include="TA2NRACon.cs" />
+    <Compile Include="TA2NRADAO.cs" />
+    <Compile Include="TE.cs" />
+    <Compile Include="TEDAO.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserDao.cs" />
+    <Compile Include="WithdrawalB.cs" />
+    <Compile Include="WithdrawalBDao.cs" />
+    <Compile Include="WithdrawalC.cs" />
+    <Compile Include="WithdrawalCDao.cs" />
+    <Compile Include="WithdrawalPDE.cs" />
+    <Compile Include="WithdrawalPDEAG.cs" />
+    <Compile Include="WithdrawalPDEAGDAO.cs" />
+    <Compile Include="WithdrawalPDEDAO.cs" />
+    <Compile Include="WithdrawalRequest.cs" />
+    <Compile Include="WithdrawalRequestDAO.cs" />
+    <Compile Include="Withdrawals.cs" />
+    <Compile Include="WithdrwalDAO.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

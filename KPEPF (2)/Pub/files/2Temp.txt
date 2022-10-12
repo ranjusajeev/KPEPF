@@ -1,0 +1,54 @@
+truncate table
+snAuditClearence
+GO
+truncate table
+snBasicDetails
+GO
+truncate table
+snCivicFunction
+GO
+truncate table
+snDevelopmentFunction
+GO
+truncate table
+snFinancialManagement
+GO
+truncate table
+snGeverance_Mark,
+GO
+truncate table
+snGramaPanchay_Details
+GO
+truncate table
+snGramaSabha_Meetings
+GO
+truncate table
+snGramaSabha_Minutes
+GO
+truncate table
+snGramaSabha_participation
+GO
+truncate table
+snKububasree,
+GO
+truncate table
+snNovel_Innovative_Project
+GO
+truncate table
+snPanchayath_GeneralCommittee
+GO
+truncate table
+snStandingCommitte
+GO
+truncate table
+snUserTBL
+GO
+truncate table
+snWard
+GO
+truncate table
+snWelFareFunction
+GO
+truncate table
+User_Log
+GO

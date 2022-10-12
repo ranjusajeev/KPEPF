@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/KPEPF/App_Browsers/" hash="132e33cd" filehash="ffffcf2b00712523" flags="110000" assembly="App_Browsers" type="ASP.ApplicationBrowserCapabilitiesFactory">
+    <filedeps>
+        <filedep name="/KPEPF/App_Browsers/saffari.browser" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,109 @@
+
+
+
+
+
+SELECT    --mltpl chalan 4 a schedule
+	count(fldEmpAccno) as cnt,
+	Tb_ScheduleTR104.fldEmpAccno as intAccNo,
+	Tb_ScheduleTR104.intId,
+	MONTH(TB_ChalanDetails_TRN.dtChalanDate) AS intMid
+FROM         
+	TB_ScheduleTR104Main 
+	INNER JOIN TB_ChalanDetails_TRN ON 
+	TB_ScheduleTR104Main.intGroupId = TB_ChalanDetails_TRN.intGroupId 
+	FULL OUTER JOIN Tb_ScheduleTR104 ON 
+	TB_ScheduleTR104Main.intSchMainId = Tb_ScheduleTR104.intSchMainId
+WHERE     
+	(Tb_ScheduleTR104.tnyUnIdentifiedAccNo = 0) 
+	AND (NOT (Tb_ScheduleTR104.fldEmpAccno IS NULL)) 
+	AND (TB_ChalanDetails_TRN.YearId = 13) 
+	AND (Tb_ScheduleTR104.fldEmpAccno >= 20218)
+	AND (Tb_ScheduleTR104.fldEmpAccno < 30218)
+
+--	AND (Tb_ScheduleTR104.fldEmpAccno = 20218)
+	AND (isnull(TB_ChalanDetails_TRN.intModeOfChgId,0)<>4) 
+	AND (isnull(Tb_ScheduleTR104.intModeOfChgId,0)<>4) 
+  	AND (isnull(Tb_ScheduleTR104.intModeOfChgId,0)<>0) 
+	AND (isnull(TB_ChalanDetails_TRN.intModeOfChgId,0)<>0)
+	AND (isnull(TB_ChalanDetails_TRN.intModeOfChgId,0)<>5) 
+	AND (isnull(Tb_ScheduleTR104.intModeOfChgId,0)<>5) 
+group by
+	Tb_ScheduleTR104.intId,
+	Tb_ScheduleTR104.fldEmpAccno,
+	MONTH(TB_ChalanDetails_TRN.dtChalanDate)
+having 
+	count(fldEmpAccno) > 1
+
+
+
+
+SELECT    --multpl entry in a schedule
+	count(fldEmpAccno) as cnt,
+	Tb_ScheduleTR104.fldEmpAccno as intAccNo,
+	TB_ScheduleTR104Main.intSchMainId,
+	TB_ChalanDetails_TRN.dtChalanDate,
+	MONTH(TB_ChalanDetails_TRN.dtChalanDate) AS intMid
+FROM         
+	TB_ScheduleTR104Main 
+	INNER JOIN TB_ChalanDetails_TRN ON 
+	TB_ScheduleTR104Main.intGroupId = TB_ChalanDetails_TRN.intGroupId 
+	FULL OUTER JOIN Tb_ScheduleTR104 ON 
+	TB_ScheduleTR104Main.intSchMainId = Tb_ScheduleTR104.intSchMainId
+WHERE     
+	(Tb_ScheduleTR104.tnyUnIdentifiedAccNo = 0) 
+	AND (NOT (Tb_ScheduleTR104.fldEmpAccno IS NULL)) 
+	AND (TB_ChalanDetails_TRN.YearId = 13) 
+	AND (Tb_ScheduleTR104.fldEmpAccno >= 20218)
+	AND (Tb_ScheduleTR104.fldEmpAccno < 30218)
+
+--	AND (Tb_ScheduleTR104.fldEmpAccno = 20218)
+	AND (isnull(TB_ChalanDetails_TRN.intModeOfChgId,0)<>4) 
+	AND (isnull(Tb_ScheduleTR104.intModeOfChgId,0)<>4) 
+  	AND (isnull(Tb_ScheduleTR104.intModeOfChgId,0)<>0) 
+	AND (isnull(TB_ChalanDetails_TRN.intModeOfChgId,0)<>0)
+	AND (isnull(TB_ChalanDetails_TRN.intModeOfChgId,0)<>5) 
+	AND (isnull(Tb_ScheduleTR104.intModeOfChgId,0)<>5) 
+group by
+	TB_ScheduleTR104Main.intSchMainId,
+	Tb_ScheduleTR104.fldEmpAccno,
+	TB_ChalanDetails_TRN.dtChalanDate
+having 
+	count(fldEmpAccno) > 1
+
+
+
+SELECT    --mltpl schedule  4 a chalan
+	count(fldEmpAccno) as cnt,
+	Tb_ScheduleTR104.fldEmpAccno as intAccNo,
+	TB_ChalanDetails_TRN.intChalanId,
+	MONTH(TB_ChalanDetails_TRN.dtChalanDate) AS intMid
+FROM         
+	TB_ScheduleTR104Main 
+	INNER JOIN TB_ChalanDetails_TRN ON 
+	TB_ScheduleTR104Main.intGroupId = TB_ChalanDetails_TRN.intGroupId 
+	FULL OUTER JOIN Tb_ScheduleTR104 ON 
+	TB_ScheduleTR104Main.intSchMainId = Tb_ScheduleTR104.intSchMainId
+WHERE     
+	(Tb_ScheduleTR104.tnyUnIdentifiedAccNo = 0) 
+	AND (NOT (Tb_ScheduleTR104.fldEmpAccno IS NULL)) 
+	AND (TB_ChalanDetails_TRN.YearId = 13) 
+	AND (Tb_ScheduleTR104.fldEmpAccno >= 20218)
+	AND (Tb_ScheduleTR104.fldEmpAccno < 30218)
+
+--	AND (Tb_ScheduleTR104.fldEmpAccno = 20218)
+	AND (isnull(TB_ChalanDetails_TRN.intModeOfChgId,0)<>4) 
+	AND (isnull(Tb_ScheduleTR104.intModeOfChgId,0)<>4) 
+  	AND (isnull(Tb_ScheduleTR104.intModeOfChgId,0)<>0) 
+	AND (isnull(TB_ChalanDetails_TRN.intModeOfChgId,0)<>0)
+	AND (isnull(TB_ChalanDetails_TRN.intModeOfChgId,0)<>5) 
+	AND (isnull(Tb_ScheduleTR104.intModeOfChgId,0)<>5) 
+group by
+	TB_ChalanDetails_TRN.intChalanId,
+	Tb_ScheduleTR104.fldEmpAccno,
+	MONTH(TB_ChalanDetails_TRN.dtChalanDate)
+having 
+	count(fldEmpAccno) > 1
+
+
+

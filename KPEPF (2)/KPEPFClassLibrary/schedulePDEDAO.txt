@@ -1,0 +1,10 @@
+public void UpdScheduleTR104Mode(ArrayList arin)
+        {
+            try
+            {
+                Save("TB_ScheduleTR104_D1", CommandType.StoredProcedure, arin);
+            }
+            catch (Exception E)
+            {
+                throw new Exception("Check the Error" + E.Message);
+            }

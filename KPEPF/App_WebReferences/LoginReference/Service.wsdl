@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckUserLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="suiteid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="applicationid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserLoginphp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="suiteid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="applicationid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserLoginphpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserLoginphpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lbid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="suiteid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="applicationid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserDetailsgroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="suiteid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="applicationid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserDetailsgroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserDetailsgroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApproverUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lbid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="subject" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="suiteid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="seatid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApproverUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getApproverUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApproverUserLB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lbid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="subject" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="suiteid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApproverUserLBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getApproverUserLBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSeatDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lbid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="suiteid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSeatDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSeatDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSeatUserDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lbid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="seatid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSeatUserDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSeatUserDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLBDetailsSanchaya">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="numUnitID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numUnitCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLBDetailsSanchayaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLBDetailsSanchayaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="savepasswordChange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="numUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cinPwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="savepasswordChangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="savepasswordChangeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSeatDetLBZonal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intLBID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numZoneID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intSuiteID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intApplicationID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intRoleID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSeatDetLBZonalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSeatDetLBZonalResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSeatDetLBZonalSuite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intLBID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numZoneID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intSuiteID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intApplicationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSeatDetLBZonalSuiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSeatDetLBZonalSuiteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSeatMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intLBID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSeatMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSeatMemberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllUserSeatLB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intLBID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="suiteid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="applicationid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllUserSeatLBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllUserSeatLBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDepartmentdet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intlLBTypeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDepartmentdetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDepartmentdetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDepartmentdetseat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intLBID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDepartmentdetseatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDepartmentdetseatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getImplementingOfficerSankhya">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getImplementingOfficerSankhyaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getImplementingOfficerSankhyaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckUserLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserLogin" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserLoginphpSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserLoginphp" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserLoginphpSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserLoginphpResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserDetailsgroupSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserDetailsgroup" />
+  </wsdl:message>
+  <wsdl:message name="getUserDetailsgroupSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserDetailsgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="getApproverUserSoapIn">
+    <wsdl:part name="parameters" element="tns:getApproverUser" />
+  </wsdl:message>
+  <wsdl:message name="getApproverUserSoapOut">
+    <wsdl:part name="parameters" element="tns:getApproverUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="getApproverUserLBSoapIn">
+    <wsdl:part name="parameters" element="tns:getApproverUserLB" />
+  </wsdl:message>
+  <wsdl:message name="getApproverUserLBSoapOut">
+    <wsdl:part name="parameters" element="tns:getApproverUserLBResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSeatDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:getSeatDetails" />
+  </wsdl:message>
+  <wsdl:message name="getSeatDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:getSeatDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSeatUserDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:getSeatUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="getSeatUserDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:getSeatUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLBDetailsSanchayaSoapIn">
+    <wsdl:part name="parameters" element="tns:getLBDetailsSanchaya" />
+  </wsdl:message>
+  <wsdl:message name="getLBDetailsSanchayaSoapOut">
+    <wsdl:part name="parameters" element="tns:getLBDetailsSanchayaResponse" />
+  </wsdl:message>
+  <wsdl:message name="savepasswordChangeSoapIn">
+    <wsdl:part name="parameters" element="tns:savepasswordChange" />
+  </wsdl:message>
+  <wsdl:message name="savepasswordChangeSoapOut">
+    <wsdl:part name="parameters" element="tns:savepasswordChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSeatDetLBZonalSoapIn">
+    <wsdl:part name="parameters" element="tns:getSeatDetLBZonal" />
+  </wsdl:message>
+  <wsdl:message name="getSeatDetLBZonalSoapOut">
+    <wsdl:part name="parameters" element="tns:getSeatDetLBZonalResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSeatDetLBZonalSuiteSoapIn">
+    <wsdl:part name="parameters" element="tns:getSeatDetLBZonalSuite" />
+  </wsdl:message>
+  <wsdl:message name="getSeatDetLBZonalSuiteSoapOut">
+    <wsdl:part name="parameters" element="tns:getSeatDetLBZonalSuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSeatMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:getSeatMember" />
+  </wsdl:message>
+  <wsdl:message name="getSeatMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:getSeatMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllUserSeatLBSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllUserSeatLB" />
+  </wsdl:message>
+  <wsdl:message name="getAllUserSeatLBSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllUserSeatLBResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDepartmentdetSoapIn">
+    <wsdl:part name="parameters" element="tns:getDepartmentdet" />
+  </wsdl:message>
+  <wsdl:message name="getDepartmentdetSoapOut">
+    <wsdl:part name="parameters" element="tns:getDepartmentdetResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDepartmentdetseatSoapIn">
+    <wsdl:part name="parameters" element="tns:getDepartmentdetseat" />
+  </wsdl:message>
+  <wsdl:message name="getDepartmentdetseatSoapOut">
+    <wsdl:part name="parameters" element="tns:getDepartmentdetseatResponse" />
+  </wsdl:message>
+  <wsdl:message name="getImplementingOfficerSankhyaSoapIn">
+    <wsdl:part name="parameters" element="tns:getImplementingOfficerSankhya" />
+  </wsdl:message>
+  <wsdl:message name="getImplementingOfficerSankhyaSoapOut">
+    <wsdl:part name="parameters" element="tns:getImplementingOfficerSankhyaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="CheckUserLogin">
+      <wsdl:input message="tns:CheckUserLoginSoapIn" />
+      <wsdl:output message="tns:CheckUserLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserLoginphp">
+      <wsdl:input message="tns:CheckUserLoginphpSoapIn" />
+      <wsdl:output message="tns:CheckUserLoginphpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input message="tns:GetUserDetailsSoapIn" />
+      <wsdl:output message="tns:GetUserDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserDetailsgroup">
+      <wsdl:input message="tns:getUserDetailsgroupSoapIn" />
+      <wsdl:output message="tns:getUserDetailsgroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getApproverUser">
+      <wsdl:input message="tns:getApproverUserSoapIn" />
+      <wsdl:output message="tns:getApproverUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getApproverUserLB">
+      <wsdl:input message="tns:getApproverUserLBSoapIn" />
+      <wsdl:output message="tns:getApproverUserLBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSeatDetails">
+      <wsdl:input message="tns:getSeatDetailsSoapIn" />
+      <wsdl:output message="tns:getSeatDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSeatUserDetails">
+      <wsdl:input message="tns:getSeatUserDetailsSoapIn" />
+      <wsdl:output message="tns:getSeatUserDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLBDetailsSanchaya">
+      <wsdl:input message="tns:getLBDetailsSanchayaSoapIn" />
+      <wsdl:output message="tns:getLBDetailsSanchayaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="savepasswordChange">
+      <wsdl:input message="tns:savepasswordChangeSoapIn" />
+      <wsdl:output message="tns:savepasswordChangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSeatDetLBZonal">
+      <wsdl:input message="tns:getSeatDetLBZonalSoapIn" />
+      <wsdl:output message="tns:getSeatDetLBZonalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSeatDetLBZonalSuite">
+      <wsdl:input message="tns:getSeatDetLBZonalSuiteSoapIn" />
+      <wsdl:output message="tns:getSeatDetLBZonalSuiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSeatMember">
+      <wsdl:input message="tns:getSeatMemberSoapIn" />
+      <wsdl:output message="tns:getSeatMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllUserSeatLB">
+      <wsdl:input message="tns:getAllUserSeatLBSoapIn" />
+      <wsdl:output message="tns:getAllUserSeatLBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDepartmentdet">
+      <wsdl:input message="tns:getDepartmentdetSoapIn" />
+      <wsdl:output message="tns:getDepartmentdetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDepartmentdetseat">
+      <wsdl:input message="tns:getDepartmentdetseatSoapIn" />
+      <wsdl:output message="tns:getDepartmentdetseatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getImplementingOfficerSankhya">
+      <wsdl:input message="tns:getImplementingOfficerSankhyaSoapIn" />
+      <wsdl:output message="tns:getImplementingOfficerSankhyaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckUserLogin">
+      <soap:operation soapAction="http://tempuri.org/CheckUserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserLoginphp">
+      <soap:operation soapAction="http://tempuri.org/CheckUserLoginphp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap:operation soapAction="http://tempuri.org/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserDetailsgroup">
+      <soap:operation soapAction="http://tempuri.org/getUserDetailsgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApproverUser">
+      <soap:operation soapAction="http://tempuri.org/getApproverUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApproverUserLB">
+      <soap:operation soapAction="http://tempuri.org/getApproverUserLB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeatDetails">
+      <soap:operation soapAction="http://tempuri.org/getSeatDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeatUserDetails">
+      <soap:operation soapAction="http://tempuri.org/getSeatUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLBDetailsSanchaya">
+      <soap:operation soapAction="http://tempuri.org/getLBDetailsSanchaya" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savepasswordChange">
+      <soap:operation soapAction="http://tempuri.org/savepasswordChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeatDetLBZonal">
+      <soap:operation soapAction="http://tempuri.org/getSeatDetLBZonal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeatDetLBZonalSuite">
+      <soap:operation soapAction="http://tempuri.org/getSeatDetLBZonalSuite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeatMember">
+      <soap:operation soapAction="http://tempuri.org/getSeatMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllUserSeatLB">
+      <soap:operation soapAction="http://tempuri.org/getAllUserSeatLB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepartmentdet">
+      <soap:operation soapAction="http://tempuri.org/getDepartmentdet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepartmentdetseat">
+      <soap:operation soapAction="http://tempuri.org/getDepartmentdetseat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImplementingOfficerSankhya">
+      <soap:operation soapAction="http://tempuri.org/getImplementingOfficerSankhya" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckUserLogin">
+      <soap12:operation soapAction="http://tempuri.org/CheckUserLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserLoginphp">
+      <soap12:operation soapAction="http://tempuri.org/CheckUserLoginphp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserDetailsgroup">
+      <soap12:operation soapAction="http://tempuri.org/getUserDetailsgroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApproverUser">
+      <soap12:operation soapAction="http://tempuri.org/getApproverUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApproverUserLB">
+      <soap12:operation soapAction="http://tempuri.org/getApproverUserLB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeatDetails">
+      <soap12:operation soapAction="http://tempuri.org/getSeatDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeatUserDetails">
+      <soap12:operation soapAction="http://tempuri.org/getSeatUserDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLBDetailsSanchaya">
+      <soap12:operation soapAction="http://tempuri.org/getLBDetailsSanchaya" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savepasswordChange">
+      <soap12:operation soapAction="http://tempuri.org/savepasswordChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeatDetLBZonal">
+      <soap12:operation soapAction="http://tempuri.org/getSeatDetLBZonal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeatDetLBZonalSuite">
+      <soap12:operation soapAction="http://tempuri.org/getSeatDetLBZonalSuite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeatMember">
+      <soap12:operation soapAction="http://tempuri.org/getSeatMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllUserSeatLB">
+      <soap12:operation soapAction="http://tempuri.org/getAllUserSeatLB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepartmentdet">
+      <soap12:operation soapAction="http://tempuri.org/getDepartmentdet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepartmentdetseat">
+      <soap12:operation soapAction="http://tempuri.org/getDepartmentdetseat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImplementingOfficerSankhya">
+      <soap12:operation soapAction="http://tempuri.org/getImplementingOfficerSankhya" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://works.lsgkerala.gov.in/demo/api/LoginService/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://works.lsgkerala.gov.in/demo/api/LoginService/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,135 @@
+<%@ Page Language="C#" MasterPageFile="~/Contents/MasterPage.master" AutoEventWireup="true" CodeFile="aaa.aspx.cs" Inherits="Contents_aaa" Title="Untitled Page" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="contentPholder" Runat="Server">
+<table><tr><td></td></tr>
+<tr><td>
+<asp:Panel ID="Panel1" runat="server" Visible="true">
+
+<tr><td>
+
+    
+    <asp:RadioButtonList id="rdCategory" runat="server" CssClass="p1" AutoPostBack="True" RepeatDirection="Horizontal" OnSelectedIndexChanged="rdCategory_SelectedIndexChanged"><asp:ListItem Selected="True" Value="0">Add</asp:ListItem>
+<asp:ListItem Value="1&#160;">Update&#160;&#160;</asp:ListItem>
+<asp:ListItem Value="2">Delete</asp:ListItem>
+</asp:RadioButtonList>
+
+
+
+
+<asp:GridView id="gdv1" runat="server" Width="800px" ForeColor="#333333" Font-Size="10pt" Font-Names="Verdana" ShowFooter="True" CellPadding="2" GridLines="None" AutoGenerateColumns="False" CellSpacing="5" OnDataBinding="gdvCPW_DataBinding" OnSelectedIndexChanged="gdv1_SelectedIndexChanged" >
+<RowStyle BackColor="#EFF3FB"></RowStyle>
+<Columns>
+<asp:BoundField DataField="SlNo" HeaderText="Sl No."></asp:BoundField>
+     <asp:HyperLinkField HeaderText="Chalan Details" DataTextField="intChalanNo" DataNavigateUrlFormatString="~/Contents/aaa.aspx?intGroupId={0}&amp;intChalanId={1}&amp;dtChalanDate={2}&amp;dtChalanDateb={3}" DataNavigateUrlFields="intGroupId,intChalanId,dtChalanDate,dtChalanDateb">
+<ItemStyle HorizontalAlign="Left"></ItemStyle>
+</asp:HyperLinkField>
+    <asp:BoundField DataField="dtChalanDateb" HeaderText="OldChal Dt" />
+    <asp:BoundField DataField="dtChalanDate" HeaderText="Chal Dt" />
+    <asp:BoundField DataField="fltChalanAmt" HeaderText="Amt" />
+    <asp:BoundField DataField="intDistID" HeaderText="Dist" />
+    <asp:BoundField DataField="chvEngLBName" HeaderText="Lb" />
+    <asp:BoundField DataField="dtmDateOfUpdation" HeaderText="Dt Upd" />
+    <asp:BoundField DataField="intChalanId" HeaderText="ChalanId" />
+   
+</Columns>
+
+<PagerStyle HorizontalAlign="Center" BackColor="#2461BF" ForeColor="White"></PagerStyle>
+
+<SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333"></SelectedRowStyle>
+
+<HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White"></HeaderStyle>
+
+<EditRowStyle Wrap="True" BackColor="#2461BF"></EditRowStyle>
+
+<AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
+</asp:GridView>
+    <%--</asp:Panel>--%>
+
+
+
+<%--</td>--%>
+
+
+</tr>
+  <TR><TD colSpan=2 style="height: 212px"><asp:GridView id="gdvCPW" runat="server" Width="100%" ForeColor="#333333" Font-Size="10pt" Font-Names="Verdana" ShowFooter="True" CellPadding="2" GridLines="None" AutoGenerateColumns="False" CellSpacing="5" OnDataBinding="gdvCPW_DataBinding" >
+<RowStyle BackColor="#EFF3FB"></RowStyle>
+<Columns>
+<asp:BoundField DataField="SlNo" HeaderText="Sl No."></asp:BoundField>
+    <asp:BoundField DataField="fldEmpAccno" HeaderText="Acc No" />
+    <asp:BoundField DataField="fltTotAmt1" HeaderText="Amt" />
+    <asp:BoundField DataField="dtmDateOfUpdation" HeaderText="Dt Upd" />
+    <asp:BoundField DataField="intModeOfChgId" HeaderText="Mode of Chg" />
+    <asp:BoundField DataField="intId" HeaderText="intId" />
+    <asp:TemplateField HeaderText="Select">
+    <HeaderTemplate>
+            <asp:CheckBox ID="Allchk" runat="server" OnCheckedChanged="Allchk_CheckedChanged" Checked="True" Text="Select" AutoPostBack="True" />
+        
+</HeaderTemplate>
+    <ItemTemplate>
+<asp:CheckBox id="chkApp1" runat="server" Width="1px" Checked="True"></asp:CheckBox> 
+</ItemTemplate>
+
+<ItemStyle HorizontalAlign="Center" Width="20px"></ItemStyle>
+</asp:TemplateField>
+</Columns>
+
+<PagerStyle HorizontalAlign="Center" BackColor="#2461BF" ForeColor="White"></PagerStyle>
+
+<SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333"></SelectedRowStyle>
+
+<HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White"></HeaderStyle>
+
+<EditRowStyle Wrap="True" BackColor="#2461BF"></EditRowStyle>
+
+<AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
+</asp:GridView></TD></TR> 
+</asp:Panel>
+</td></tr>
+<tr><td>
+<asp:Panel ID="Panel2" runat="server" Visible="true">
+<asp:RadioButtonList id="rdCategoryS" runat="server" OnSelectedIndexChanged="rdCategoryS_SelectedIndexChanged" RepeatDirection="Horizontal" CssClass="p1" Width="413px" AutoPostBack="True"><asp:ListItem Selected="True" Value="0">Acc No. Add</asp:ListItem>
+<asp:ListItem Value="1&#160;">Acc No. Upd</asp:ListItem>
+    <asp:ListItem Value="2">Amt Upd</asp:ListItem>
+    <asp:ListItem Value="Delete"></asp:ListItem>
+
+</asp:RadioButtonList>
+
+
+<asp:GridView id="gdv2" runat="server" Width="800px" ForeColor="#333333" Font-Size="10pt" Font-Names="Verdana" ShowFooter="True" CellPadding="2" GridLines="None" AutoGenerateColumns="False" CellSpacing="5" OnDataBinding="gdvCPW_DataBinding" OnSelectedIndexChanged="gdv1_SelectedIndexChanged" >
+<RowStyle BackColor="#EFF3FB"></RowStyle>
+<Columns>
+<asp:BoundField DataField="SlNo" HeaderText="Sl No."></asp:BoundField>
+
+    <asp:BoundField DataField="dtChalanDate" HeaderText="Chal Dt" />
+    <asp:BoundField DataField="fldEmpAccnoOld" HeaderText="Acc Old" />
+    <asp:BoundField DataField="fldEmpAccno" HeaderText="Acc" />
+    <asp:BoundField DataField="fltTotAmt1Old" HeaderText="Amt Old" />
+    <asp:BoundField DataField="fltTotAmt1" HeaderText="Amt" />
+    <asp:BoundField DataField="dtmDateOfUpdation" HeaderText="Dt Upd" />
+    <asp:BoundField DataField="intId" HeaderText="intId" />
+    <asp:BoundField DataField="flg" HeaderText="type" />
+    <asp:BoundField DataField="intChalanId" HeaderText="intChalanId" />
+   <asp:TemplateField HeaderText="Select"><ItemTemplate>
+<asp:CheckBox id="chkApp" runat="server" Width="1px" AutoPostBack="True" OnCheckedChanged="chkApp_CheckedChanged"></asp:CheckBox> 
+</ItemTemplate>
+
+<ItemStyle HorizontalAlign="Center" Width="20px"></ItemStyle>
+</asp:TemplateField>
+</Columns>
+
+<PagerStyle HorizontalAlign="Center" BackColor="#2461BF" ForeColor="White"></PagerStyle>
+
+<SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333"></SelectedRowStyle>
+
+<HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White"></HeaderStyle>
+
+<EditRowStyle Wrap="True" BackColor="#2461BF"></EditRowStyle>
+
+<AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
+</asp:GridView>
+</asp:Panel>
+</td></tr>
+
+<tr><TD style="WIDTH: 600px; HEIGHT: 20px" align="center"><asp:Button id="btnOK" onclick="btnOK_Click" runat="server" Width="70px" ForeColor="Navy" Text="CorreEntry" Font-Size="Small" Height="20px"></asp:Button> </TD></tr> 
+</table>
+</asp:Content>
+

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="8" virtualPath="/KPEPF/global.asax" hash="132e33cd" filehash="11561d603567" flags="150000" assembly="App_global.asax" type="ASP.global_asax">
+    <filedeps>
+        <filedep name="/KPEPF/global.asax" />
+    </filedeps>
+</preserve>
